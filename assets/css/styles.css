@@ -657,10 +657,17 @@ button{
 .show-scroll{
   bottom: 5rem;
 }
-
 /*=============== SCROLL BAR ===============*/
-
-
+::-webkit-scrollbar{
+  width: .60rem;
+  background-color: var(--scroll-bar-color);
+}
+::-webkit-scrollbar-thumb{
+  background-color: var(--scroll-thumb-color);
+}
+::-webkit-scrollbar-thumb:hover{
+  background-color: var(--text-color-light);
+}
 /*=============== MEDIA QUERIES ===============*/
 /* For small devices */
 

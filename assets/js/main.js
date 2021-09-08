@@ -108,9 +108,9 @@ function scrollActive(){
     })
 }
 window.addEventListener('scroll', scrollActive)
-/*==================== SCROLL REVEAL ANIMATION ====================*/
-
 /*==================== DARK LIGHT THEME ====================*/ 
+
+/*==================== SCROLL REVEAL ANIMATION ====================*/
 
 // Previously selected topic (if user selected)
 
