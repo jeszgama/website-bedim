@@ -2,6 +2,7 @@
 const navMenu = document.getElementById('nav-menu'),
       navToggle = document.getElementById('nav-toggle'),
       navClose = document.getElementById('nav-close')
+
 /*===== MENU SHOW =====*/
 /* Validate if constant exists */
 if(navToggle){
@@ -17,7 +18,7 @@ if(navClose){
         navMenu.classList.remove('show-menu')
     })
 }
- 
+
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll('.nav__link')
 
@@ -38,7 +39,7 @@ function scrollHeader(){
 window.addEventListener('scroll', scrollHeader)
 
 /*==================== SWIPER DISCOVER ====================*/
-var swiper = new Swiper(".discover__container", {
+let swiper = new Swiper(".discover__container", {
     effect: "coverflow",
     grabCursor: true,
     centeredSlides: true,
@@ -46,32 +47,32 @@ var swiper = new Swiper(".discover__container", {
     loop: true,
     spaceBetween: 32,
     coverflowEffect: {
-      rotate: 0,
+        rotate: 0,
     },
-});
+})
+
 /*==================== VIDEO ====================*/
 const videoFile = document.getElementById('video-file'),
       videoButton = document.getElementById('video-button'),
       videoIcon = document.getElementById('video-icon')
 
-function playPause(){
-    if(videoFile.paused){
+function playPause(){ 
+    if (videoFile.paused){
         // Play video
         videoFile.play()
-
         // We change the icon
-        videoButton.classList.add('ri-pause-line')
+        videoIcon.classList.add('ri-pause-line')
         videoIcon.classList.remove('ri-play-line')
-    } else{
+    }
+    else {
         // Pause video
-        videoFile.pause()
-
+        videoFile.pause(); 
         // We change the icon
         videoIcon.classList.remove('ri-pause-line')
         videoIcon.classList.add('ri-play-line')
+
     }
 }
-
 videoButton.addEventListener('click', playPause)
 
 function finalVideo(){
@@ -79,8 +80,9 @@ function finalVideo(){
     videoIcon.classList.remove('ri-pause-line')
     videoIcon.classList.add('ri-play-line')
 }
-// ended, whe the video ends
+// ended, when the video ends
 videoFile.addEventListener('ended', finalVideo)
+
 
 /*==================== SHOW SCROLL UP ====================*/ 
 function scrollUp(){
@@ -89,6 +91,7 @@ function scrollUp(){
     if(this.scrollY >= 200) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
 }
 window.addEventListener('scroll', scrollUp)
+
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll('section[id]')
 
@@ -108,6 +111,38 @@ function scrollActive(){
     })
 }
 window.addEventListener('scroll', scrollActive)
+
+/*==================== SCROLL REVEAL ANIMATION ====================*/
+const sr = ScrollReveal({
+    distance: '60px',
+    duration: 2800,
+    // reset: true,
+})
+
+
+sr.reveal(`.home__data, .home__social-link, .home__info,
+           .discover__container,
+           .experience__data, .experience__overlay,
+           .place__card,
+           .sponsor__content,
+           .footer__data, .footer__rights`,{
+    origin: 'top',
+    interval: 100,
+})
+
+sr.reveal(`.about__data, 
+           .video__description,
+           .subscribe__description`,{
+    origin: 'left',
+})
+
+sr.reveal(`.about__img-overlay, 
+           .video__content,
+           .subscribe__form`,{
+    origin: 'right',
+    interval: 100,
+})
+
 /*==================== DARK LIGHT THEME ====================*/ 
 const themeButton = document.getElementById('theme-button')
 const darkTheme = 'dark-theme'
